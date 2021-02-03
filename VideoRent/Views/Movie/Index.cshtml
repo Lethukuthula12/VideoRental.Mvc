@@ -1,0 +1,38 @@
+﻿@model IEnumerable<VideoRent.Models.Movie> 
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Movies</h2>
+@if (!Model.Any())
+{
+    <p>The're no Movies saved yet!</p>
+}
+else
+{
+    <table class="table table-hover table-bordered">
+        <tr>
+            <theader><th>Name</th><th>Gerne</th></theader>
+
+        </tr>
+        <tbody>
+
+
+            @foreach (var movie in Model)
+                {
+                <tr><td>@Html.ActionLink(movie.Name, "Details", "Movie", new { id = movie.id }, null) </td> <td>@movie.Genre.Name<td></tr>
+            }
+
+
+
+
+
+        </tbody>
+
+
+    </table>
+
+}
+
+
+
